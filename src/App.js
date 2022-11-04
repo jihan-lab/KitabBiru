@@ -1,13 +1,15 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import {Splash} from './pages';
+import Router from './Router';
 
 const App = () => {
   return (
-    <View>
-      <Text>Hello World</Text>
-    </View>
+    <>
+      <NavigationContainer>
+        <Router />
+      </NavigationContainer>
+    </>
   );
 };
-
-const styles = StyleSheet.create({});
 
 export default App;
