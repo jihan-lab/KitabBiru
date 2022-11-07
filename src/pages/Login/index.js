@@ -1,10 +1,10 @@
 import React from 'react';
 import {ImageBackground, StyleSheet, Text, View} from 'react-native';
 import {IlBackground} from '../../assets';
-import {Button, Input, Link} from '../../components';
+import {Button, Gap, Input, Link} from '../../components';
 import {colors, fonts} from '../../utils';
 
-export default function Login() {
+export default function Login({navigation}) {
   return (
     <ImageBackground style={styles.page} source={IlBackground}>
       <View style={styles.wrapTitle}>
@@ -12,12 +12,16 @@ export default function Login() {
       </View>
       <View style={styles.container}>
         <Text style={styles.text}>Login</Text>
-        <Input placeholder="Email" />
-        <Input placeholder="Password" />
-        <Button title="Masuk" />
+        <Input label="Email" />
+        <Input label="Password" />
+        <Gap height={32} />
+        <Button onPress={() => navigation.navigate('Register')} title="Masuk" />
         <View style={styles.register}>
           <Text style={styles.link}>Tidak Punya Akun? </Text>
-          <Link title="Daftar" />
+          <Link
+            onPress={() => navigation.navigate('Register')}
+            title="Daftar"
+          />
         </View>
       </View>
     </ImageBackground>

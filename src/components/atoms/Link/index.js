@@ -3,9 +3,9 @@ import React from 'react';
 import {colors, fonts} from '../../../utils';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 
-export default function Link({title}) {
+export default function Link({title, onPress}) {
   return (
-    <TouchableOpacity>
+    <TouchableOpacity onPress={onPress}>
       <Text style={styles.link}>{title}</Text>
     </TouchableOpacity>
   );
