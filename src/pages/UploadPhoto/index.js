@@ -1,7 +1,7 @@
 import {Image, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {Button, Gap, Header} from '../../components';
-import {IlNullPhoto} from '../../assets';
+import {IconAddPhoto, IlNullPhoto} from '../../assets';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {colors, fonts} from '../../utils';
 
@@ -13,12 +13,16 @@ export default function UploadPhoto({navigation}) {
         <View style={styles.profile}>
           <TouchableOpacity style={styles.avatarWrapper}>
             <Image style={styles.avatar} source={IlNullPhoto} />
+            <IconAddPhoto style={styles.addPhoto} />
           </TouchableOpacity>
           <Text style={styles.name}>Anastasya</Text>
           <Text style={styles.profession}>Mahasiswa</Text>
         </View>
-        <View style={styles.button}>
-          <Button disable title="Unggah dan Lanjut" />
+        <View>
+          <Button
+            onPress={() => navigation.replace('MainApp')}
+            title="Unggah dan Lanjut"
+          />
         </View>
       </View>
     </View>
@@ -35,6 +39,11 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
   },
+  addPhoto: {
+    position: 'absolute',
+    right: 2,
+    bottom: 2,
+  },
   avatar: {
     height: 110,
     width: 110,
@@ -50,7 +59,7 @@ const styles = StyleSheet.create({
   },
   content: {
     paddingHorizontal: 40,
-    paddingBottom: 64,
+    paddingBottom: 84,
     flex: 1,
     justifyContent: 'space-between',
   },
@@ -67,8 +76,5 @@ const styles = StyleSheet.create({
     color: colors.text.secondary,
     textAlign: 'center',
     marginTop: 4,
-  },
-  button: {
-    paddingHorizontal: 40,
   },
 });

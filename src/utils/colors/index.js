@@ -12,6 +12,7 @@ const mainColors = {
 
 export const colors = {
   primary: mainColors.blue1,
+  secondary: mainColors.green1,
   disable: mainColors.grey2,
   white: 'white',
   black: 'black',
@@ -22,4 +23,5 @@ export const colors = {
     disable: mainColors.grey4,
   },
   border: mainColors.grey1,
+  iconMenuActive: mainColors.green2,
 };
