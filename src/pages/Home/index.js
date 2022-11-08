@@ -7,31 +7,33 @@ export default function Home({navigation}) {
   return (
     <View style={styles.page}>
       <View style={styles.content}>
-        <View style={styles.header}>
-          <Gap height={30} />
-          <HomeProfile />
-          <Gap height={30} />
-          <Text style={styles.welcome}>Mau belajar apa hari ini?</Text>
-          <Gap height={12} />
-        </View>
-        <View>
-          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-            <View style={styles.category}>
-              <Gap width={16} />
-              <Category onPress={() => navigation.navigate('ListModule')} />
-              <Category onPress={() => navigation.navigate('ListModule')} />
-              <Category onPress={() => navigation.navigate('ListModule')} />
-              <Category onPress={() => navigation.navigate('ListModule')} />
-              <Gap width={16} />
-            </View>
-          </ScrollView>
-        </View>
-        <Gap height={29} />
-        <Text style={styles.tips}>Tips Coding</Text>
-        <Gap height={24} />
-        <Tips />
-        <Tips />
-        <Tips />
+        <ScrollView showsVerticalScrollIndicator={false}>
+          <View style={styles.header}>
+            <Gap height={30} />
+            <HomeProfile onPress={() => navigation.navigate('UserProfile')} />
+            <Gap height={30} />
+            <Text style={styles.welcome}>Mau belajar apa hari ini?</Text>
+            <Gap height={12} />
+          </View>
+          <View>
+            <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+              <View style={styles.category}>
+                <Gap width={16} />
+                <Category onPress={() => navigation.navigate('ListModule')} />
+                <Category onPress={() => navigation.navigate('ListModule')} />
+                <Category onPress={() => navigation.navigate('ListModule')} />
+                <Category onPress={() => navigation.navigate('ListModule')} />
+                <Gap width={16} />
+              </View>
+            </ScrollView>
+          </View>
+          <Gap height={29} />
+          <Text style={styles.tips}>Tips Coding</Text>
+          <Gap height={24} />
+          <Tips />
+          <Tips />
+          <Tips />
+        </ScrollView>
       </View>
     </View>
   );

@@ -7,6 +7,8 @@ import Quiz from './Quiz';
 import ListModule from './ListModule';
 import Module from './Module';
 import Materi from './Materi';
+import UserProfile from './UserProfile';
+import UpdateProfile from './UpdateProfile';
 
 export {
   Splash,
@@ -18,4 +20,6 @@ export {
   ListModule,
   Module,
   Materi,
+  UserProfile,
+  UpdateProfile,
 };

@@ -1,21 +1,30 @@
-import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
+import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {Dummy1} from '../../../assets';
 import {colors, fonts} from '../../../utils';
+import ListModule from './listModule';
+import ListProfile from './listProfile';
 
-export default function List({type, number, title, onPress}) {
+export default function List({
+  type,
+  number,
+  title,
+  onPress,
+  icon,
+  desc,
+  label,
+}) {
   if (type === 'module') {
+    return <ListModule number={number} title={title} onPress={onPress} />;
+  }
+
+  if (type === 'profile') {
     return (
-      <TouchableOpacity onPress={onPress} style={styles.moduleContainer}>
-        <View style={styles.moduleContent}>
-          <Text style={styles.number}>{number}.</Text>
-          <Text style={styles.module}>{title}</Text>
-        </View>
-      </TouchableOpacity>
+      <ListProfile icon={icon} desc={desc} label={label} onPress={onPress} />
     );
   }
   return (
-    <View style={styles.container}>
+    <TouchableOpacity onPress={onPress} style={styles.container}>
       <Image style={styles.avatar} source={Dummy1} />
       <View style={styles.content}>
         <Text style={styles.name}>Nairobi Putri Hayza</Text>
@@ -23,7 +32,7 @@ export default function List({type, number, title, onPress}) {
           Oh kamu juga lagi belajar menggunakan...
         </Text>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 }
 
@@ -56,33 +65,5 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontFamily: fonts.primary[600],
     color: colors.text.secondary,
-  },
-
-  // module
-  moduleContainer: {
-    backgroundColor: colors.secondary,
-    paddingHorizontal: 12,
-    paddingVertical: 14,
-    marginHorizontal: 16,
-    borderRadius: 10,
-    marginBottom: 14,
-    shadowColor: colors.black,
-    elevation: 20,
-    justifyContent: 'center',
-  },
-  moduleContent: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  module: {
-    fontSize: 16,
-    fontFamily: fonts.primary[600],
-    color: colors.text.primary,
-    marginLeft: 37,
-  },
-  number: {
-    fontSize: 16,
-    fontFamily: fonts.primary[600],
-    color: colors.text.primary,
   },
 });

@@ -9,6 +9,8 @@ import {
   UploadPhoto,
   Module,
   Materi,
+  UserProfile,
+  UpdateProfile,
 } from '../pages';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Register from '../pages/Register';
@@ -72,6 +74,16 @@ const Router = () => {
       <Stack.Screen
         name="Materi"
         component={Materi}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="UserProfile"
+        component={UserProfile}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="UpdateProfile"
+        component={UpdateProfile}
         options={{headerShown: false}}
       />
     </Stack.Navigator>

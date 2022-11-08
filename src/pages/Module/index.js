@@ -12,13 +12,13 @@ export default function Module({navigation}) {
         onPress={() => navigation.navigate('Materi')}
         type="module"
         title="Pengenalan HTML"
-        number="01"
+        number="1"
       />
       <List
         onPress={() => navigation.navigate('Materi')}
         type="module"
         title="Apa itu HTML"
-        number="02"
+        number="2"
       />
       <List
         onPress={() => navigation.navigate('Materi')}
