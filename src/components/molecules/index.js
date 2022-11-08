@@ -3,5 +3,6 @@ import BottomNavigator from './BottomNavigator';
 import HomeProfile from './HomeProfile';
 import Category from './Category';
 import Tips from './Tips';
+import List from './List';
 
-export {Header, BottomNavigator, HomeProfile, Category, Tips};
+export {Header, BottomNavigator, HomeProfile, Category, Tips, List};
