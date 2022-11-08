@@ -1,9 +1,19 @@
-import {Image, StyleSheet, Text, View} from 'react-native';
+import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import {Dummy1} from '../../../assets';
 import {colors, fonts} from '../../../utils';
 
-export default function List() {
+export default function List({type, number, title, onPress}) {
+  if (type === 'module') {
+    return (
+      <TouchableOpacity onPress={onPress} style={styles.moduleContainer}>
+        <View style={styles.moduleContent}>
+          <Text style={styles.number}>{number}.</Text>
+          <Text style={styles.module}>{title}</Text>
+        </View>
+      </TouchableOpacity>
+    );
+  }
   return (
     <View style={styles.container}>
       <Image style={styles.avatar} source={Dummy1} />
@@ -46,5 +56,33 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontFamily: fonts.primary[600],
     color: colors.text.secondary,
+  },
+
+  // module
+  moduleContainer: {
+    backgroundColor: colors.secondary,
+    paddingHorizontal: 12,
+    paddingVertical: 14,
+    marginHorizontal: 16,
+    borderRadius: 10,
+    marginBottom: 14,
+    shadowColor: colors.black,
+    elevation: 20,
+    justifyContent: 'center',
+  },
+  moduleContent: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  module: {
+    fontSize: 16,
+    fontFamily: fonts.primary[600],
+    color: colors.text.primary,
+    marginLeft: 37,
+  },
+  number: {
+    fontSize: 16,
+    fontFamily: fonts.primary[600],
+    color: colors.text.primary,
   },
 });

@@ -1,11 +1,11 @@
-import {Image, StyleSheet, Text, View} from 'react-native';
+import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import {IlAndroidCat} from '../../../assets';
 import {colors, fonts} from '../../../utils';
 
-export default function Category() {
+export default function Category({onPress}) {
   return (
-    <View style={styles.container}>
+    <TouchableOpacity onPress={onPress} style={styles.container}>
       <View style={styles.wrapImgCat}>
         <Image style={styles.imgCat} source={IlAndroidCat} />
       </View>
@@ -13,7 +13,7 @@ export default function Category() {
         <Text style={styles.title}>Basic</Text>
         <Text style={styles.desc}>Pemrograman</Text>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 }
 

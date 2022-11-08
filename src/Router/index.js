@@ -1,5 +1,15 @@
 import {createStackNavigator} from '@react-navigation/stack';
-import {Home, Login, Messages, Quiz, Splash, UploadPhoto} from '../pages';
+import {
+  Home,
+  ListModule,
+  Login,
+  Messages,
+  Quiz,
+  Splash,
+  UploadPhoto,
+  Module,
+  Materi,
+} from '../pages';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Register from '../pages/Register';
 import {BottomNavigator} from '../components';
@@ -25,6 +35,11 @@ const Router = () => {
   return (
     <Stack.Navigator initialRouteName="Splash">
       <Stack.Screen
+        name="MainApp"
+        component={MainApp}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
         name="Splash"
         component={Splash}
         options={{headerShown: false}}
@@ -45,8 +60,18 @@ const Router = () => {
         options={{headerShown: false}}
       />
       <Stack.Screen
-        name="MainApp"
-        component={MainApp}
+        name="ListModule"
+        component={ListModule}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Module"
+        component={Module}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Materi"
+        component={Materi}
         options={{headerShown: false}}
       />
     </Stack.Navigator>

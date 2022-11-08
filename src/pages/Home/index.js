@@ -3,7 +3,7 @@ import React from 'react';
 import {Category, Gap, HomeProfile, Tips} from '../../components';
 import {colors, fonts} from '../../utils';
 
-export default function Home() {
+export default function Home({navigation}) {
   return (
     <View style={styles.page}>
       <View style={styles.content}>
@@ -18,10 +18,10 @@ export default function Home() {
           <ScrollView horizontal showsHorizontalScrollIndicator={false}>
             <View style={styles.category}>
               <Gap width={16} />
-              <Category />
-              <Category />
-              <Category />
-              <Category />
+              <Category onPress={() => navigation.navigate('ListModule')} />
+              <Category onPress={() => navigation.navigate('ListModule')} />
+              <Category onPress={() => navigation.navigate('ListModule')} />
+              <Category onPress={() => navigation.navigate('ListModule')} />
               <Gap width={16} />
             </View>
           </ScrollView>
