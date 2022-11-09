@@ -7,6 +7,7 @@ const mainColors = {
   grey2: '#EDEEF0',
   grey3: '#7D8797',
   grey4: '#B1B7C2',
+  grey5: '#8092AF',
   dark1: '#112340',
 };
 
@@ -21,7 +22,9 @@ export const colors = {
     primary: mainColors.dark1,
     secondary: mainColors.grey3,
     disable: mainColors.grey4,
+    darkHeader: mainColors.grey5,
   },
   border: mainColors.grey1,
   iconMenuActive: mainColors.green2,
+  inputChat: mainColors.grey2,
 };

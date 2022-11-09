@@ -2,6 +2,7 @@ import React from 'react';
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {Dummy1} from '../../../assets';
 import {colors, fonts} from '../../../utils';
+import ListLabel from './listLabel';
 import ListModule from './listModule';
 import ListProfile from './listProfile';
 
@@ -13,6 +14,7 @@ export default function List({
   icon,
   desc,
   label,
+  photo,
 }) {
   if (type === 'module') {
     return <ListModule number={number} title={title} onPress={onPress} />;
@@ -23,14 +25,15 @@ export default function List({
       <ListProfile icon={icon} desc={desc} label={label} onPress={onPress} />
     );
   }
+  if (type === 'label') {
+    return <ListLabel desc={desc} label={label} />;
+  }
   return (
     <TouchableOpacity onPress={onPress} style={styles.container}>
-      <Image style={styles.avatar} source={Dummy1} />
+      <Image style={styles.avatar} source={photo} />
       <View style={styles.content}>
-        <Text style={styles.name}>Nairobi Putri Hayza</Text>
-        <Text style={styles.desc}>
-          Oh kamu juga lagi belajar menggunakan...
-        </Text>
+        <Text style={styles.name}>{title}</Text>
+        <Text style={styles.desc}>{desc}</Text>
       </View>
     </TouchableOpacity>
   );

@@ -11,6 +11,8 @@ import {
   Materi,
   UserProfile,
   UpdateProfile,
+  Chatting,
+  MentorProfile,
 } from '../pages';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Register from '../pages/Register';
@@ -84,6 +86,16 @@ const Router = () => {
       <Stack.Screen
         name="UpdateProfile"
         component={UpdateProfile}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Chatting"
+        component={Chatting}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="MentorProfile"
+        component={MentorProfile}
         options={{headerShown: false}}
       />
     </Stack.Navigator>

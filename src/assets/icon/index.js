@@ -12,6 +12,8 @@ import IconQuizActive from './ic-quiz-active.svg';
 import IconLogout from './ic-logout.svg';
 import IconEditProfile from './ic-edit-profile.svg';
 import IconNext from './ic-next.svg';
+import IconSend from './ic-send.svg';
+import IconSendDisable from './ic-send-disable.svg';
 
 export {
   IconLogo,
@@ -28,4 +30,6 @@ export {
   IconLogout,
   IconNext,
   IconRemovePhoto,
+  IconSend,
+  IconSendDisable,
 };

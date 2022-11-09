@@ -6,7 +6,12 @@ import {colors} from '../../utils';
 export default function Module({navigation}) {
   return (
     <View style={styles.page}>
-      <Header title="HTML" type="dark" onPress={() => navigation.goBack()} />
+      <Header
+        desc="Pemrograman Basic"
+        title="HTML"
+        type="dark"
+        onPress={() => navigation.goBack()}
+      />
       <Gap height={14} />
       <List
         onPress={() => navigation.navigate('Materi')}

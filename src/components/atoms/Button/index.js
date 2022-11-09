@@ -1,7 +1,12 @@
 import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {colors, fonts} from '../../../utils';
-import {IconArrowDark, IconArrowLight} from '../../../assets';
+import {
+  IconArrowDark,
+  IconArrowLight,
+  IconSend,
+  IconSendDisable,
+} from '../../../assets';
 
 export default function Button({title, onPress, type, disable}) {
   if (type === 'icon-dark') {
@@ -16,6 +21,20 @@ export default function Button({title, onPress, type, disable}) {
       <TouchableOpacity onPress={onPress}>
         <IconArrowLight />
       </TouchableOpacity>
+    );
+  }
+  if (type === 'send') {
+    return (
+      <TouchableOpacity style={styles.send} onPress={onPress}>
+        <IconSend />
+      </TouchableOpacity>
+    );
+  }
+  if (type === 'send-disable') {
+    return (
+      <View style={styles.sendDisable}>
+        <IconSendDisable />
+      </View>
     );
   }
   if (disable) {
@@ -57,5 +76,23 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingVertical: 10,
     borderRadius: 10,
+  },
+
+  // send
+  send: {
+    backgroundColor: colors.primary,
+    height: 45,
+    width: 45,
+    borderRadius: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  sendDisable: {
+    backgroundColor: colors.disable,
+    height: 45,
+    width: 45,
+    borderRadius: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });

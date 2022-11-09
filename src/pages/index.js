@@ -9,6 +9,8 @@ import Module from './Module';
 import Materi from './Materi';
 import UserProfile from './UserProfile';
 import UpdateProfile from './UpdateProfile';
+import Chatting from './Chatting';
+import MentorProfile from './MentorProfile';
 
 export {
   Splash,
@@ -22,4 +24,6 @@ export {
   Materi,
   UserProfile,
   UpdateProfile,
+  Chatting,
+  MentorProfile,
 };

@@ -5,5 +5,17 @@ import Category from './Category';
 import Tips from './Tips';
 import List from './List';
 import CardModule from './CardModule';
+import ChatItem from './ChatItem';
+import InputChat from './InputChat';
 
-export {Header, BottomNavigator, HomeProfile, Category, Tips, List, CardModule};
+export {
+  Header,
+  BottomNavigator,
+  HomeProfile,
+  Category,
+  Tips,
+  List,
+  CardModule,
+  ChatItem,
+  InputChat,
+};

@@ -1,35 +1,39 @@
 import {Image, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
-import {Gap, Header, List} from '../../components';
-import {DummyUser1} from '../../assets';
+import {Button, Gap, Header, List} from '../../components';
+import {Dummy3, DummyUser1} from '../../assets';
 import {colors, fonts} from '../../utils';
 
-export default function UserProfile({navigation}) {
+export default function MentorProfile({navigation}) {
   return (
     <View style={styles.page}>
-      <Header title="Profile" onPress={() => navigation.goBack()} />
+      <Header title="Mentor Profile" onPress={() => navigation.goBack()} />
       <View style={styles.content}>
         <View style={styles.profile}>
           <View style={styles.wrapAvatar}>
-            <Image style={styles.avatar} source={DummyUser1} />
+            <Image style={styles.avatar} source={Dummy3} />
           </View>
           <Gap height={16} />
-          <Text style={styles.name}>Anastasya</Text>
-          <Text style={styles.profession}>Mahasiswa</Text>
+          <Text style={styles.name}>Jihan Abdul Rohman</Text>
+          <Text style={styles.profession}>Fullstack Web Developer</Text>
         </View>
         <View>
           <List
-            type="profile"
-            label="Edit Profile"
-            desc="Last updated yesterday"
-            icon="editProfile"
-            onPress={() => navigation.navigate('UpdateProfile')}
+            type="label"
+            label="Alumnus"
+            desc="Universitas Pamulang, 2019"
           />
           <List
-            type="profile"
-            label="Logout"
-            icon="logout"
-            desc="Keluar dari session akun ini"
+            type="label"
+            label="Pekerjaan"
+            desc="Software Engineer di Tokopedia"
+          />
+          <List type="label" label="Kategori" desc="Mobile Developer" />
+        </View>
+        <View style={styles.button}>
+          <Button
+            title="Kirim Pesan"
+            onPress={() => navigation.navigate('Chatting')}
           />
         </View>
       </View>
@@ -72,5 +76,8 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontFamily: fonts.primary[400],
     color: colors.text.secondary,
+  },
+  button: {
+    marginHorizontal: 40,
   },
 });
