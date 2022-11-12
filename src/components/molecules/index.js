@@ -7,6 +7,7 @@ import List from './List';
 import CardModule from './CardModule';
 import ChatItem from './ChatItem';
 import InputChat from './InputChat';
+import Loading from './Loading';
 
 export {
   Header,
@@ -18,4 +19,5 @@ export {
   CardModule,
   ChatItem,
   InputChat,
+  Loading,
 };

@@ -9,6 +9,7 @@ export default function InputChat({value, onChangeText, onPress}) {
     <View style={styles.container}>
       <TextInput
         style={styles.input}
+        multiline={true}
         value={value}
         onChangeText={onChangeText}
       />
@@ -29,12 +30,16 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: colors.border,
     backgroundColor: colors.inputChat,
+
+    width: '100%',
+
     flex: 1,
     padding: 14,
     borderRadius: 10,
     fontSize: 14,
     fontFamily: fonts.primary[400],
-    maxHeight: 45,
+    height: 45,
+    maxHeight: 100,
     marginRight: 10,
   },
 });

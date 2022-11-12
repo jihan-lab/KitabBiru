@@ -3,12 +3,14 @@ const mainColors = {
   green1: '#EDFCFD',
   green2: '#0BCAD4',
   black1: '#112340',
+  black2: 'rgba(0, 0, 0, 0.5)',
   grey1: '#E9E9E9',
   grey2: '#EDEEF0',
   grey3: '#7D8797',
   grey4: '#B1B7C2',
   grey5: '#8092AF',
   dark1: '#112340',
+  red1: '#E06379',
 };
 
 export const colors = {
@@ -27,4 +29,6 @@ export const colors = {
   border: mainColors.grey1,
   iconMenuActive: mainColors.green2,
   inputChat: mainColors.grey2,
+  error: mainColors.red1,
+  loadingBackground: mainColors.black2,
 };

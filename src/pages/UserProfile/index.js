@@ -1,21 +1,51 @@
+import React, {useEffect, useState} from 'react';
 import {Image, StyleSheet, Text, View} from 'react-native';
-import React from 'react';
+import {IlNullPhoto} from '../../assets';
 import {Gap, Header, List} from '../../components';
-import {DummyUser1} from '../../assets';
-import {colors, fonts} from '../../utils';
+import {Fire} from '../../config';
+import {colors, fonts, getData, showError} from '../../utils';
 
 export default function UserProfile({navigation}) {
+  const [photoProfile, setPhotoProfile] = useState('');
+  const [user, setUser] = useState([]);
+
+  useEffect(() => {
+    getDataFromLocal();
+  }, [user]);
+
+  const getDataFromLocal = () => {
+    getData('user').then(res => {
+      if (res.photo) {
+        setUser(res);
+        setPhotoProfile({uri: res.photo});
+      } else {
+        setUser(res);
+        setPhotoProfile(IlNullPhoto);
+      }
+    });
+  };
+
+  const logout = () => {
+    Fire.auth()
+      .signOut()
+      .then(() => {
+        navigation.replace('Login');
+      })
+      .catch(error => {
+        showError(error.message);
+      });
+  };
   return (
     <View style={styles.page}>
       <Header title="Profile" onPress={() => navigation.goBack()} />
       <View style={styles.content}>
         <View style={styles.profile}>
           <View style={styles.wrapAvatar}>
-            <Image style={styles.avatar} source={DummyUser1} />
+            <Image style={styles.avatar} source={photoProfile} />
           </View>
           <Gap height={16} />
-          <Text style={styles.name}>Anastasya</Text>
-          <Text style={styles.profession}>Mahasiswa</Text>
+          <Text style={styles.name}>{user.fullName}</Text>
+          <Text style={styles.profession}>{user.profession}</Text>
         </View>
         <View>
           <List
@@ -23,13 +53,14 @@ export default function UserProfile({navigation}) {
             label="Edit Profile"
             desc="Last updated yesterday"
             icon="editProfile"
-            onPress={() => navigation.navigate('UpdateProfile')}
+            onPress={() => navigation.navigate('UpdateProfile', user)}
           />
           <List
             type="profile"
             label="Logout"
             icon="logout"
             desc="Keluar dari session akun ini"
+            onPress={logout}
           />
         </View>
       </View>

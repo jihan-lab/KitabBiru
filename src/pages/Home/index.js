@@ -1,16 +1,37 @@
 import {StyleSheet, Text, View, ScrollView} from 'react-native';
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {Category, Gap, HomeProfile, Tips} from '../../components';
-import {colors, fonts} from '../../utils';
+import {colors, fonts, getData} from '../../utils';
+import {IlNullPhoto} from '../../assets';
 
 export default function Home({navigation}) {
+  const [user, setUser] = useState([]);
+  const [photoProfile, setPhotoProfile] = useState('');
+
+  useEffect(() => {
+    getData('user').then(res => {
+      if (res.photo) {
+        setUser(res);
+        setPhotoProfile({uri: res.photo});
+      } else {
+        setUser(res);
+        setPhotoProfile(IlNullPhoto);
+      }
+    });
+  }, [user]);
+
   return (
     <View style={styles.page}>
       <View style={styles.content}>
         <ScrollView showsVerticalScrollIndicator={false}>
           <View style={styles.header}>
             <Gap height={30} />
-            <HomeProfile onPress={() => navigation.navigate('UserProfile')} />
+            <HomeProfile
+              fullName={user.fullName}
+              profession={user.profession}
+              photo={photoProfile}
+              onPress={() => navigation.navigate('UserProfile')}
+            />
             <Gap height={30} />
             <Text style={styles.welcome}>Mau belajar apa hari ini?</Text>
             <Gap height={12} />

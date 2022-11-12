@@ -2,13 +2,21 @@ import {StyleSheet, Text, View} from 'react-native';
 import React, {useEffect} from 'react';
 import {fonts} from '../../utils';
 import {IconLogo} from '../../assets';
+import {Fire} from '../../config';
 
 export default function Splash({navigation}) {
   useEffect(() => {
-    setTimeout(() => {
-      navigation.replace('Login');
-    }, 1000);
-  });
+    const unSubscribe = Fire.auth().onAuthStateChanged(user => {
+      setTimeout(() => {
+        if (user) {
+          navigation.replace('MainApp');
+        } else {
+          navigation.replace('Login');
+        }
+      }, 1000);
+    });
+    return () => unSubscribe();
+  }, [navigation]);
   return (
     <View style={styles.container}>
       <IconLogo />

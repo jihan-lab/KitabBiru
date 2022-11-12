@@ -1,5 +1,5 @@
 import {NavigationContainer} from '@react-navigation/native';
-import {Splash} from './pages';
+import FlashMessage from 'react-native-flash-message';
 import Router from './Router';
 
 const App = () => {
@@ -8,6 +8,7 @@ const App = () => {
       <NavigationContainer>
         <Router />
       </NavigationContainer>
+      <FlashMessage position="top" />
     </>
   );
 };
